@@ -11,18 +11,25 @@ function getComputerChoice() {
 
 }
 
-function singleRound(playerSelection, computerSelection){
-    playerSelection = prompt ("Pick Rock,Paper or Scissors","")
-    playerSelection = playerSelection.toLowerCase();
+function singleRound(playerSelection, computerSelection) {
+    choice = prompt ("Pick Rock,Paper or Scissors");
+    playerSelection = choice.toLowerCase();
     computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
-        singleRound();
-        
+        singleRound(); 
     }
-
-
+    let winconditions = playerSelection+computerSelection;   
+    switch (winconditions) {
+        case 'rockscissors':
+        case 'paperrock':
+        case 'scissorspaper':
+            alert (`Winner! ${playerSelection} beats ${computerSelection}`);
+            break 
+        default: 
+            alert(`Loser! ${computerSelection} beats ${playerSelection}`);
+            break 
+    }
 }
+   
 
 singleRound();
-
-    
