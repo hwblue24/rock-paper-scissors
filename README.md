@@ -1,0 +1,1 @@
+Javascript practice through making a rock-paper-scissors game 
