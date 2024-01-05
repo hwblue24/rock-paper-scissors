@@ -2,19 +2,20 @@ function getComputerChoice() {
     let number = Math.floor((Math.random()*3)+1);
 
     if (number === 1) {
-        return ('scissors')
+        return 'scissors';
     } else if (number ===2) {
-        return ('paper')
+        return 'paper';
     } else { 
-        return ('rock')
+        return 'rock';
     }
 
 }
 
-function singleRound(playerSelection, computerSelection) {
-    choice = prompt ("Pick Rock,Paper or Scissors");
-    playerSelection = choice.toLowerCase();
-    computerSelection = getComputerChoice();
+function singleRound() {
+    let choice = prompt ("Pick Rock, Paper or Scissors");
+    let playerSelection = choice.toLowerCase();
+    const computerSelection = getComputerChoice();
+    
     if (playerSelection === computerSelection) {
         singleRound(); 
     }
@@ -23,13 +24,54 @@ function singleRound(playerSelection, computerSelection) {
         case 'rockscissors':
         case 'paperrock':
         case 'scissorspaper':
-            alert (`Winner! ${playerSelection} beats ${computerSelection}`);
-            break 
+            return true; //(`Winner! ${playerSelection} beats ${computerSelection}`);
         default: 
-            alert(`Loser! ${computerSelection} beats ${playerSelection}`);
-            break 
+            return false;//(`Loser! ${computerSelection} beats ${playerSelection}`);
     }
 }
-   
 
-singleRound();
+function game() {
+    let hscore = 0; 
+    let pcscore = 0;  
+    let round = 0; 
+    let x = singleRound();
+    if (x === true ){
+        hscore+=1; 
+        round+=1; 
+        alert (`Your score, ${hscore} end of round ${round}`); 
+    }else { 
+        pcscore+=1;
+        round+=1; 
+        alert (`The pc score, ${pcscore} end of round ${round}`);
+    } 
+    let y = singleRound();
+    if (y === true ){
+        hscore+=1; 
+        round+=1; 
+        alert (`Your score, ${hscore} end of round ${round}`); 
+    }else { 
+        pcscore+=1;
+        round+=1; 
+        alert (`The pc score, ${pcscore} end of round ${round}`);
+    } 
+
+    let z = singleRound();
+    if (z === true ){
+        hscore+=1; 
+        round+=1; 
+        alert (`Your score, ${hscore} end of round ${round}`); 
+    }else { 
+        pcscore+=1;
+        round+=1; 
+        alert (`The pc score, ${pcscore} end of round ${round}`);
+    } 
+    
+    if (hscore>pcscore) {
+        return `You won, you scored ${hscore} points and the pc scored ${pcscore} point`; 
+    }else {
+        return `You lost, the pc scored ${pcscore} and you scored ${hscore} point`;
+    }
+
+
+    
+}
