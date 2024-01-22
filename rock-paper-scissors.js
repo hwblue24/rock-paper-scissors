@@ -50,4 +50,3 @@ scissors.addEventListener("click", playRound);
 
 
 
-
