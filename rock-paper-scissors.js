@@ -11,29 +11,43 @@ function getComputerChoice() {
 
 }
 
-function rpsRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
+    
+    playerSelection = playerSelection.target.id;
     computerSelection = getComputerChoice(); 
     if (playerSelection === computerSelection) {
 
-        return `Tie game`;  
+        console.log(`Tie game`);  
 
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
 
-        return `Winner rock beats scissors`;
+        console.log(`Winner rock beats scissors`);
 
     } else if (playerSelection === 'paper' && computerSelection === 'rock'){
 
-        return `Winner paper beats rock`;
+        console.log(`Winner paper beats rock`);
 
     } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
 
-            return `Winner scissors beats paper`;
+        console.log (`Winner scissors beats paper`);
     } else {
 
-        return `Loser ${computerSelection} beats ${playerSelection}`;
+        console.log (`Loser ${computerSelection} beats ${playerSelection}`);
     }
 }
 
-console.log(rpsRound('rock'));
+
+const rock = document.querySelector('#rock');   
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener("click", playRound); 
+paper.addEventListener("click", playRound); 
+scissors.addEventListener("click", playRound); 
+
+
+
+
+
 
 
